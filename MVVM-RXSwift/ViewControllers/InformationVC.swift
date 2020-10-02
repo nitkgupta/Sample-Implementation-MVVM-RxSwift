@@ -15,8 +15,21 @@ class InformationVC: UITableViewController {
         self.tableView.register(InfoCell.nib, forCellReuseIdentifier: InfoCell.identifier)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.barTintColor = .darkGray
+        NotificationCenter.default.addObserver(self, selector: #selector(themeDidChange), name: Theme.notification, object: nil)
+        
         self.infoListVM.actionHandler = {[weak self] action in
             self?.actionHandler(action)
+        }
+        
+        // Just a hack to update font to other font for time being until a seperte user controlled config is developed
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            Theme.shared.changeTheme(to: .notoSans)
+        }
+    }
+    
+    deinit {
+        if let observer = observer {
+            NotificationCenter.default.removeObserver(observer, name: Theme.notification, object: nil)
         }
     }
 
@@ -42,4 +55,13 @@ class InformationVC: UITableViewController {
     }
     
     private let infoListVM = InfoListVM()
+    private var observer: Any?
+}
+
+extension InformationVC: ThemeApplicable {
+    func themeDidChange() {
+        if let indexs = tableView.indexPathsForVisibleRows {
+            self.tableView.reloadRows(at: indexs, with: .automatic)
+        }
+    }
 }

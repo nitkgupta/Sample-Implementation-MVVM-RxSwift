@@ -34,6 +34,7 @@ class InfoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        setupViews()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -59,6 +60,14 @@ class InfoCell: UITableViewCell {
                 self?.sampleImage.sd_setImage(with: url)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func setupViews() {
+        let theme = Theme.shared
+        titleLabel.font = theme.textForFont(style: .headline, size: CGFloat(20))
+        descriptionLabel.font = theme.textForFont(style: .body, size: CGFloat(17))
+        authorLabel.font = theme.textForFont(style: .body, size: CGFloat(13))
+        setNeedsUpdateConstraints()
     }
     
     override func prepareForReuse() {
