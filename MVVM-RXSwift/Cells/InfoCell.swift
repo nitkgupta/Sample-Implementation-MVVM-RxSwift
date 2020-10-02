@@ -19,7 +19,6 @@ class InfoCell: UITableViewCell {
         didSet {
             sampleImage.image = UIImage()
             sampleImage.backgroundColor = .clear
-            sampleImage.alpha = 0.2
         }
     }
     

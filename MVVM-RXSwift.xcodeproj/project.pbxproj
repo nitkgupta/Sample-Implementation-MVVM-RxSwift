@@ -154,6 +154,7 @@
 		DB5BD85E25276CF3003CA0CF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DB6480AF2520823D002796AA /* Listeners.swift */,
 				DB5BD85F25276D08003CA0CF /* ThemeModelable.swift */,
 			);
 			path = Utilities;
@@ -205,7 +206,6 @@
 				DBCCAEEB251FDBAA00ACCBA0 /* Main.storyboard */,
 				DBCCAEF0251FDBAB00ACCBA0 /* LaunchScreen.storyboard */,
 				DBCCAEF3251FDBAB00ACCBA0 /* Info.plist */,
-				DB6480AF2520823D002796AA /* Listeners.swift */,
 			);
 			path = "MVVM-RXSwift";
 			sourceTree = "<group>";
