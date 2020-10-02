@@ -196,6 +196,9 @@
 		DBCCAEE4251FDBAA00ACCBA0 /* MVVM-RXSwift */ = {
 			isa = PBXGroup;
 			children = (
+				DB64809E2520779B002796AA /* Constants.swift */,
+				DBCCAEEB251FDBAA00ACCBA0 /* Main.storyboard */,
+				DBCCAEF0251FDBAB00ACCBA0 /* LaunchScreen.storyboard */,
 				DB5BD85E25276CF3003CA0CF /* Utilities */,
 				DB5BD85525276ADE003CA0CF /* Resources */,
 				DB6480A6252079C1002796AA /* ViewModel */,
@@ -204,10 +207,7 @@
 				DBCCAF1C251FDC2E00ACCBA0 /* Models */,
 				DBCCAF1B251FDC1900ACCBA0 /* ViewControllers */,
 				DBCCAEE5251FDBAA00ACCBA0 /* AppDelegate.swift */,
-				DB64809E2520779B002796AA /* Constants.swift */,
 				DBCCAEE7251FDBAA00ACCBA0 /* SceneDelegate.swift */,
-				DBCCAEEB251FDBAA00ACCBA0 /* Main.storyboard */,
-				DBCCAEF0251FDBAB00ACCBA0 /* LaunchScreen.storyboard */,
 				DBCCAEF3251FDBAB00ACCBA0 /* Info.plist */,
 			);
 			path = "MVVM-RXSwift";
