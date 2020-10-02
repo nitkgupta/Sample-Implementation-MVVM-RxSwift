@@ -15,11 +15,9 @@ class InfoListVM {
     }
     
     var actionHandler: ActionHandler?
-    private var infoList: [InfoVM] = [] {
-        didSet {
-            self.actionHandler?(.reloadTable)
-        }
-    }
+    
+    var infoList: DynamicType<[InfoVM]> = DynamicType([])
+    
     private let disposeBag = DisposeBag()
 }
 
@@ -37,17 +35,17 @@ extension InfoListVM {
                 return Observable<ArticleList?>.just(nil)
             }
             .subscribe(onNext: {[weak self] articles in
-                self?.infoList = articles?.articles.compactMap(InfoVM.init) ?? []
+                self?.infoList.value = articles?.articles.compactMap(InfoVM.init) ?? []
             })
             .disposed(by: disposeBag)
     }
     
     func info(at index: Int) -> InfoVM {
-        return infoList[index]
+        return infoList.value[index]
     }
     
     func numberOfItems() -> Int {
-        return infoList.count
+        return infoList.value.count
     }
 }
 

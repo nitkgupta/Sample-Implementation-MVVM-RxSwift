@@ -17,8 +17,13 @@ class InformationVC: UITableViewController {
         self.navigationController?.navigationBar.barTintColor = .darkGray
         NotificationCenter.default.addObserver(self, selector: #selector(themeDidChange), name: Theme.notification, object: nil)
         
-        self.infoListVM.actionHandler = {[weak self] action in
-            self?.actionHandler(action)
+        //Other way if don't want to use DynamicType
+//        self.infoListVM.actionHandler = {[weak self] action in
+//            self?.actionHandler(action)
+//        }
+        
+        self.infoListVM.infoList.bind {[weak self] _ in
+            self?.tableView.reloadData()
         }
         
         // Just a hack to update font to other font for time being until a seperte user controlled config is developed
